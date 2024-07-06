@@ -1,2 +1,2 @@
-# Training-Documents
+# Training-Document
 Training-Documents
