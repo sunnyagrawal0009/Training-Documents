@@ -1,0 +1,776 @@
+**********************
+Day 6 - 27th May 2024 
+**********************	
+
+	Build Orchestration using Jenkins ::::
+	
+		Lab Requirements:
+		
+			AWS Cloud platform ::
+
+				Create a AWS Free-tier Account
+						https://aws.amazon.com/console/
+				
+				12 Months 
+				
+				Active Email_ID 
+				Mobile Number 
+				Active Credit/Debit Card for authentication - International Transaction 
+				
+				clear brower history/cache & create another account
+				
+				Login to aws console as a root user
+					- Email_id 
+					- Password
+					
+				Create EC2 Instances / VMs 
+				
+				Establish Connection to VMs / EC2 Instances 
+				
+					AWS Instance Connect 
+					
+					SSH Clients 
+						- MobaXterm 		https://mobaxterm.mobatek.net/download.html
+						- Putty 
+						
+					Terminal 
+					
+	Jenkins :::
+	
+		- Jenkins is Open-Source Build Orchestration Tool 
+	
+	
+		- Jenkins Architecture
+			- Master / Slave Architecture :::
+			
+				Virtual Machine --> Install Jenkins --> 
+									Used to Create CICD Pipeline Project and Scheduled to run in slave nodes
+									
+									
+				Jenkins_Master_Node		--> Install Jenkins  
+				
+					Jenkins_Slave_Node	--> Perform Application Builds
+					
+				Eg.: 
+				
+					Jenkins_Master_Node	--> Installed Jenkins 
+											Java Application 	- Build tool (maven)
+
+
+					Jenkins_Master_Node	--> Installed Jenkins 
+											Used to Create CICD Pipeline Jobs/Projects and Scheduled to run in slave nodes					
+						Jenkins_Slave_Node1 	Java Application 	- Build tool (maven)
+						Jenkins_Slave_Node1.1 	Java Application 	- Build tool (maven)
+						Jenkins_Slave_Node2 	Python
+						Jenkins_Slave_Node3 	NodeJS
+						Jenkins_Slave_Node4 	NodeJS
+						Jenkins_Slave_Node5 	.Net
+						
+		Alternative to Jenkins ===> Azure Pipelines / git-lab-ci / aws codepipeline / bamboo
+
+
+		What are the roles and responsibilities of DevOps Engineer :
+		
+		
+		Developers' Perspective :::
+		
+				--> Consumers 
+		
+		DevOps Perspective :::
+		
+			- Jenkins Administration 
+			
+				- Installation of Jenkins 
+				- Manage the Jenkins Plugins 
+				- Tools Management 
+				- User Management
+				- Security Management 
+				- Global Jenkins System Management
+				- Create CICD Pipeline Projects 
+				- Create and Manage the Jenkins Slave Nodes 
+				- Onboard applications to DevOps Jenkins CICD process 
+				- Trouble-shoot the Issue
+				- Periodic Back-up and Recovery of Jenkins Components 
+				- Periodic Upgrade of Jenkins & its Plugins 
+				
+		- Installation of Jenkins
+				https://www.jenkins.io/doc/book/installing/
+		
+			VM on AWS Cloud 
+			
+			1. Launch Linux Ubuntu Machine - AWS EC2 Instance 
+			
+					- Choose Linux Ubuntu v22.04 ami
+			2. Install Jenkins 
+				
+			Package Managers :
+
+				Used to manage the packages on Linus Machines :
+				
+					Linux Distribution:
+					
+						- Centos/RHEL			-- yum 
+						- Ubuntu/Debian			-- apt-get / apt 
+						- Fedora				-- dnf 
+			
+			Jenkins can be accessible as a web service --> 
+				- It uses port 8080 as a default port for access.
+				
+				run a  vm for 750 Hrs/Month 
+				
+				1 VM 	= 750 Hrs/Month 
+				10 VMs 	= 75 Hrs/Month
+				
+				
+
+sudo apt update
+sudo apt install fontconfig openjdk-17-jre
+java -version
+		
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins	
+
+
+
+**********************
+Day 6 - 27th May 2024 
+**********************	
+
+	Build Orchestration using Jenkins ::::
+	
+		Lab Requirements:
+		
+			AWS Cloud platform ::
+
+				Create a AWS Free-tier Account
+						https://aws.amazon.com/console/
+				
+				12 Months 
+				
+				Active Email_ID 
+				Mobile Number 
+				Active Credit/Debit Card for authentication - International Transaction 
+				
+				clear brower history/cache & create another account
+				
+				Login to aws console as a root user
+					- Email_id 
+					- Password
+					
+				Create EC2 Instances / VMs 
+				
+				Establish Connection to VMs / EC2 Instances 
+				
+					AWS Instance Connect 
+					
+					SSH Clients 
+						- MobaXterm 		https://mobaxterm.mobatek.net/download.html
+						- Putty 
+						
+					Terminal 
+						- CMD
+	Jenkins :::
+	
+		- Jenkins is Open-Source Build Orchestration Tool 
+	
+	
+		- Jenkins Architecture
+			- Master / Slave Architecture :::
+			
+				Virtual Machine --> Install Jenkins --> 
+									Used to Create CICD Pipeline Project and Scheduled to run in slave nodes
+									
+									
+				Jenkins_Master_Node		--> Install Jenkins  
+				
+					Jenkins_Slave_Node	--> Perform Application Builds
+					
+				Eg.: 
+				
+					Jenkins_Master_Node	--> Installed Jenkins 
+											Java Application 	- Build tool (maven)
+
+
+					Jenkins_Master_Node	--> Installed Jenkins 
+											Used to Create CICD Pipeline Jobs/Projects and Scheduled to run in slave nodes					
+						Jenkins_Slave_Node1 	Java Application 	- Build tool (maven)
+						Jenkins_Slave_Node1.1 	Java Application 	- Build tool (maven)
+						Jenkins_Slave_Node2 	Python
+						Jenkins_Slave_Node3 	NodeJS
+						Jenkins_Slave_Node4 	NodeJS
+						Jenkins_Slave_Node5 	.Net
+						
+		Alternative to Jenkins ===> Azure Pipelines / git-lab-ci / aws codepipeline / bamboo
+
+
+		What are the roles and responsibilities of DevOps Engineer :
+		
+		
+		Developers' Perspective :::
+		
+				--> Consumers 
+		
+		DevOps Perspective :::
+		
+			- Jenkins Administration 
+			
+				- Installation of Jenkins 
+				- Manage the Jenkins Plugins 
+				- Tools Management 
+				- User Management
+				- Security Management 
+				- Global Jenkins System Management
+				
+				- Create CICD Pipeline Projects 
+				- Create and Manage the Jenkins Slave Nodes 
+				- Onboard applications to DevOps Jenkins CICD process 
+				- Trouble-shoot the Issue
+				- Periodic Back-up and Recovery of Jenkins Components 
+				- Periodic Upgrade of Jenkins & its Plugins 
+				
+		- Installation of Jenkins
+				https://www.jenkins.io/doc/book/installing/
+		
+			VM on AWS Cloud 
+			
+			1. Launch Linux Ubuntu Machine - AWS EC2 Instance 
+			
+					- Choose Linux Ubuntu v22.04 ami
+			2. Install Jenkins 
+				
+			Package Managers :
+
+				Used to manage the packages on Linus Machines :
+				
+					Linux Distribution:
+					
+						- Centos/RHEL			-- yum 
+						- Ubuntu/Debian			-- apt-get / apt 
+						- Fedora				-- dnf 
+			
+			Jenkins can be accessible as a web service --> 
+				- It uses port 8080 as a default port for access.
+				
+				run a  vm for 750 Hrs/Month 
+				
+				1 VM 	= 750 Hrs/Month 
+				10 VMs 	= 75 Hrs/Month
+				
+				
+
+sudo apt update
+sudo apt install fontconfig openjdk-17-jre
+java -version
+		
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins				
+
+
+
+
+
+**********************
+Day 7 - 28th May 2024 
+**********************		
+
+	Using MobaXterm we can connect to remote Linux Machine 
+	
+	Host Name 
+	
+	User Name 
+	
+	Credentials - 
+	
+	Types of Authentications:
+	
+		- Password based Auth 
+		- Key based Auth 
+			- public key 
+			- private key 	==> *.pem # downloaded to local machine
+		- Token based Auth 
+		- Passwordless Auth 
+
+
+			Package Managers :
+
+				Used to manage the packages on Linus Machines :
+				
+					Linux Distribution:
+					
+						- Centos/RHEL			-- yum 
+						- Ubuntu/Debian			-- apt-get / apt 
+						- Fedora			-- dnf 		
+		
+
+sudo -i
+
+
+sudo apt update -y
+sudo apt install fontconfig openjdk-17-jre -y
+java -version
+		
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+  
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt-get update -y
+
+sudo apt-get install jenkins -y 
+
+Post Installation Activities ::
+
+
+Upon Installation :
+
+Use <public_ip_addr>:8080 to access jenkins service thru web browser.
+Eg.:
+http://13.127.225.190:8080/
+
+
+	- Manage the Jenkins Plugins 
+	
+	Create Jenkins Jobs/Projects :
+	
+	
+		- Free-Style Projects 			# Manual Configuration
+		
+		- Pipeline Projects 			# Created using Scripts - groovy 
+		
+		
+		
+	Handling Variables :::
+	
+		- Environment Variables
+		
+		- User Defined Variables
+		
+
+		
+	Pipeline Projects 			# Created using Scripts - groovy 
+	
+	
+		- Used to reuse the functions
+		
+		- Scripted Pipelines
+		
+		- Declarative Pipelines
+		
+
+
+Eg.: 		- Declarative Pipelines
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM_Checkout ') {
+            steps {
+                echo 'Perform SCM Checkout'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+            }
+        }
+        stage('Deploy to QA Environment') {
+            steps {
+                echo 'Deploy to QA Environment'
+            }
+        }
+    }
+}
+
+	Pipelines are composed of various Stages :
+	
+		stage1 --> stage2 
+		
+		
+	CI CD Pipeline Jobs ::
+	
+	
+	Pipeline :
+		
+		Stage1 : SCM_Checkout 
+		
+		Stage2 : Application Build 
+		
+		Stage3 : Deploy to QA 
+		
+		
+Next :: 
+
+	Create CICD pipeline with actual application
+
+		
+		
+**********************
+Day 8 - 29th May 2024 
+**********************	
+
+
+	Create CICD pipeline to automate build and deployment
+	
+	Application and Builds Tool :
+	
+		- Java Web application using Maven Build Tool 
+		
+		
+		Build Environment :
+		
+		Target Environment : QA/UAT/Prod
+		
+		Jenkins_Master_Node 									# Used to Orchestrate the Builds and Deployments
+			Jenkins_Slave_Node 									# Build Environment  -- *.war 
+		
+		Target/Hosted Server(VM) 
+			- Web Application Server (Tomcat)
+			
+			
+			How to Connect with Remote Server :
+			
+				- Host Name / IP Address 
+				- Uname 
+				- Credentials
+					
+		In Java Maven Project Source :
+		
+			- Maven is one of the open-source build tool for java applications
+				(gradle/ant)
+				
+			- pom.xml :
+				- Used to maintain the dependencies and the plugins required to build the maven application
+		
+			- Maven Goals :
+			
+				- Compile 		# Just to compile the src_code 
+				- Test 			# Compile and Perform Unit Testing 
+				- Package 		# Compile, Unit Test and Create artifacts in target folder of source code repo
+				- Clean 		# Used to Clean the Target folder 				
+			
+				Syntax:
+				
+					mvn clean package 
+					
+		Prepare Build Environment and Target Environment
+		
+		
+Setup Jenkins Slave Node 	::
+
+#####################################################################################################################
+#Configure Slave Node1 for Java Maven App. :
+
+sudo apt update -y
+sudo apt install fontconfig openjdk-17-jre -y
+java -version
+
+Install GIT :
+
+git --version 
+
+#sudo apt install git -y
+
+
+Install Maven - Build Tool :
+https://maven.apache.org/install.html
+
+sudo apt install maven -y 
+
+#####################################################################################################################
+
+#Add User : 
+
+useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+su - devopsadmin
+
+#ssh-keygen
+
+#for Ubuntu ::
+#ssh-keygen -t rsa -b 2048 -m PEM								#ubuntu 20.04
+
+ssh-keygen -t ecdsa -b 521										#ubuntu 22.04 or higher version of ubuntu				
+
+ls ~/.ssh 
+
+#You should see following two files:
+
+#id_ecdsa - private key
+#id_ecdsa.pub - public
+
+#cat id_rsa.pub > authorized_keys
+
+cat id_ecdsa.pub > authorized_keys
+
+chmod 600 /home/devopsadmin/.ssh/*
+
+Goto Jenkins Console - Manage Jenkins - Nodes Configuration 
+
+#####################################################################################################################
+
+pipeline {
+
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout ') {
+            steps {
+                echo 'Perform SCM Checkout'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+            }
+        }
+        stage('Deploy to QA Environment') {
+            steps {
+                echo 'Deploy to QA Environment'
+            }
+        }
+    }
+}
+		
+Summary :
+
+	- Launch EC2 Instance - ubuntu v22.04
+			
+	- Install git,jdk,maven 
+	
+	- Create User Name 
+	
+	- Create SSH Key
+	
+	- Login to Jenkins 
+	
+	- goto node config page 
+	
+	- Create New Node 
+	
+	- Create a pipeline job using pipeline snippet generator
+				
+pipeline {
+
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout ') {
+            steps {
+                echo 'Perform SCM Checkout'
+                git 'https://github.com/Edu-DCP-May20/springbootapp1.git'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+                sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to QA Environment') {
+            steps {
+                echo 'Deploy to QA Environment'
+            }
+        }
+    }
+}
+
+Next :::
+		Configure :
+			Tomcat Server 
+			create CI/CD Pipeline			
+			Build Trigggers 			
+			Email Notifications 
+			
+		Ansible 
+	
+**********************
+Day 9 - 30th May 2024 
+**********************	
+
+	Configure :
+		Tomcat Server 
+		create CI/CD Pipeline			
+		Build Trigggers 			
+		Email Notifications 
+		
+	
+		About Deployment :::
+		
+		
+		Jenkins_Master_Node
+			- Jenkins_Slave_Node1
+		
+		Tomcat_Server 					# Port 8080
+			
+			About Deployment :::	
+
+			Source Server 															Target Server
+			
+				Jenkins_Slave_Node														Tomcat_Server
+					target/demo-0.0.1-SNAPSHOT.war 				===========>				/opt/tomcat/webapps/demo*.war
+					
+					
+		Publish over SSH Plugins 
+		
+			- Used to connect to remote server thru ssh and copy the artifacts
+					
+					
+			got0 - Manage jenkins - system configuration - publish over ssh config
+			
+			
+			
+		sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+					
+					
+					
+		Artifactory Libraries  - Jfrog Artifactory 
+				- Used to version control the artifacts 
+				
+				
+		GITHUB 					--> Used to version control src_code 
+		
+		Jfrog Artifactory  		--> Used to version control the artifacts 
+		
+		Container Registries 	-->	Used to version control the Application Container Images 
+			
+			
+			
+
+	Build Trigggers  ::::
+	
+		- Used automate / schedule the builds 
+		
+	
+		Types of Build Triggers :::
+		
+		
+		- Build Periodic
+			- Used to schedule the job based on cron tab 
+			
+			Eg.: 
+			
+				Jenkins Master
+				
+				Non-Environments				Prod Servers 
+					
+					dev
+					Slave Nodes1 					
+					QA 	Test 					
+					UAT Test 	
+		
+				8AM 		Jenkins Non-Prod_Server_Start_Job		* 8 0 0 0
+				
+				10PM 		Jenkins Non-Prod_Server_Stop_Job		* 22 0 0 0
+			
+		
+		- Github webhook :::
+		
+			- Used to trigger the cicd pipeline job as soon as commit happened in the remote source code repository
+			
+			- So for every commit the jobs gets triggered to perform CI and CD.
+			
+			Configure github Webhook :
+		
+		
+		<jenkins_public_ip_addr>:8080/github-webhook/
+		
+		http://65.1.85.232:8080/github-webhook/
+		
+		
+		- poll SCM :::
+			
+			- Used to trigger the cicd pipeline job as per the given cron schedule only if there is any changes committed in the remote source code repository
+			
+			execute for every 1 min 
+			
+			Test Cycle :
+			
+				8AM 	12PM	3PM
+				
+				
+	Email Notifications :::	
+			
+pipeline {
+
+    agent { label 'slave1' }
+
+    stages {
+        stage('SCM_Checkout ') {
+            steps {
+                echo 'Perform SCM Checkout'
+                git 'https://github.com/Edu-DCP-May20/springbootapp1.git'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Perform Application Build'
+                sh 'mvn clean package'
+            }
+        }
+        stage('Deploy to QA Environment') {
+            steps {
+                echo 'Deploy to QA Environment'
+            }
+        }
+    }
+}		
+			
+			
+			
+	Notifications can be done based on the execution of Job / Job Steps
+	
+		- success 
+		
+		- failure 
+		
+		- unstable 
+		
+	- Configure Email Server in Jenkins Management Console 
+
+
+EMail Notification :::
+
+
+SMTP Server :
+smtp.gmail.com
+
+SMTP Authentication
+
+SMTP Port :: 465
+
+Login to Gmail :::
+
+Click Manage Account Settings
+
+@Left side panel - select Security 
+
+MFA --> mobile# # Two way authentication.
+
+on the same page search for app password
+
+enter the app password name 
+App Password = 16 bytes of App Password. 
+
+What ? window
+Which Appln - email
+	
+	- Add the Email Notifications in the post build actions of pipeline job/stage
+			
+Next ::: 
+
+	Ansible 
+	
